@@ -1,0 +1,265 @@
+Year,State,Homicide_Rate,Homicide_Count
+1990,New South Wales,2.02,119
+1991,New South Wales,1.78,106
+1992,New South Wales,1.87,112
+1993,New South Wales,1.95,118
+1994,New South Wales,1.47,90
+1995,New South Wales,1.78,110
+1996,New South Wales,1.6,100
+1997,New South Wales,1.7,107
+1998,New South Wales,1.76,112
+1999,New South Wales,1.64,106
+2000,New South Wales,1.78,116
+2001,New South Wales,1.47,97
+2002,New South Wales,1.5,99
+2003,New South Wales,1.22,81
+2004,New South Wales,1.09,73
+2005,New South Wales,1.26,85
+2006,New South Wales,1.3,89
+2007,New South Wales,1.27,88
+2008,New South Wales,1.09,76
+2009,New South Wales,1.08,77
+2010,New South Wales,1.07,77
+2011,New South Wales,0.99,72
+2012,New South Wales,0.95,70
+2013,New South Wales,1.08,81
+2014,New South Wales,0.89,68
+2015,New South Wales,0.7,54
+2016,New South Wales,0.88,69
+2017,New South Wales,0.77,62
+2018,New South Wales,1.0,81
+2019,New South Wales,1.04,85
+2020,New South Wales,0.75,61
+2021,New South Wales,0.88,72
+2022,New South Wales,0.76,63
+1990,Victoria,1.63,72
+1991,Victoria,1.21,54
+1992,Victoria,1.32,59
+1993,Victoria,1.07,48
+1994,Victoria,1.65,74
+1995,Victoria,1.15,52
+1996,Victoria,1.12,51
+1997,Victoria,0.91,42
+1998,Victoria,1.16,54
+1999,Victoria,1.32,62
+2000,Victoria,1.15,55
+2001,Victoria,1.7,82
+2002,Victoria,1.19,58
+2003,Victoria,1.4,69
+2004,Victoria,1.02,51
+2005,Victoria,1.32,67
+2006,Victoria,0.91,47
+2007,Victoria,0.84,44
+2008,Victoria,0.97,52
+2009,Victoria,1.12,60
+2010,Victoria,0.78,43
+2011,Victoria,0.96,54
+2012,Victoria,0.81,47
+2013,Victoria,0.9,52
+2014,Victoria,0.78,47
+2015,Victoria,1.04,64
+2016,Victoria,0.81,51
+2017,Victoria,0.78,51
+2018,Victoria,0.68,47
+2019,Victoria,1.03,67
+2020,Victoria,0.84,55
+2021,Victoria,0.74,49
+2022,Victoria,0.73,50
+1990,Queensland,1.89,56
+1991,Queensland,2.25,68
+1992,Queensland,2.36,73
+1993,Queensland,1.96,62
+1994,Queensland,1.82,60
+1995,Queensland,2.0,66
+1996,Queensland,2.38,80
+1997,Queensland,2.17,74
+1998,Queensland,1.85,64
+1999,Queensland,1.71,61
+2000,Queensland,1.82,65
+2001,Queensland,2.0,73
+2002,Queensland,1.66,62
+2003,Queensland,1.51,58
+2004,Queensland,1.3,50
+2005,Queensland,1.4,56
+2006,Queensland,1.29,54
+2007,Queensland,1.28,54
+2008,Queensland,1.06,46
+2009,Queensland,1.29,57
+2010,Queensland,1.09,49
+2011,Queensland,1.05,49
+2012,Queensland,1.01,47
+2013,Queensland,0.76,37
+2014,Queensland,0.9,43
+2015,Queensland,0.95,46
+2016,Queensland,0.67,33
+2017,Queensland,0.65,33
+2018,Queensland,0.79,40
+2019,Queensland,0.97,50
+2020,Queensland,0.8,42
+2021,Queensland,0.79,42
+2022,Queensland,0.9,49
+1990,Western Australia,1.34,22
+1991,Western Australia,1.75,29
+1992,Western Australia,2.03,34
+1993,Western Australia,2.11,36
+1994,Western Australia,2.65,46
+1995,Western Australia,1.87,34
+1996,Western Australia,1.28,23
+1997,Western Australia,1.86,34
+1998,Western Australia,1.78,33
+1999,Western Australia,1.86,34
+2000,Western Australia,1.47,28
+2001,Western Australia,1.66,31
+2002,Western Australia,1.64,32
+2003,Western Australia,1.82,36
+2004,Western Australia,1.34,27
+2005,Western Australia,1.46,30
+2006,Western Australia,1.23,26
+2007,Western Australia,1.38,30
+2008,Western Australia,1.38,30
+2009,Western Australia,1.0,23
+2010,Western Australia,1.36,32
+2011,Western Australia,1.4,33
+2012,Western Australia,1.61,40
+2013,Western Australia,1.07,27
+2014,Western Australia,1.26,32
+2015,Western Australia,1.25,32
+2016,Western Australia,1.52,39
+2017,Western Australia,1.07,28
+2018,Western Australia,1.22,32
+2019,Western Australia,1.16,31
+2020,Western Australia,1.05,29
+2021,Western Australia,0.86,24
+2022,Western Australia,1.35,39
+1990,South Australia,1.52,22
+1991,South Australia,1.86,27
+1992,South Australia,2.06,30
+1993,South Australia,1.98,29
+1994,South Australia,1.98,29
+1995,South Australia,0.88,13
+1996,South Australia,1.49,22
+1997,South Australia,1.82,27
+1998,South Australia,2.55,38
+1999,South Australia,1.54,23
+2000,South Australia,1.4,21
+2001,South Australia,2.05,31
+2002,South Australia,1.45,22
+2003,South Australia,1.83,28
+2004,South Australia,1.36,21
+2005,South Australia,1.35,21
+2006,South Australia,0.76,12
+2007,South Australia,1.13,18
+2008,South Australia,1.62,26
+2009,South Australia,1.29,21
+2010,South Australia,1.22,20
+2011,South Australia,1.03,18
+2012,South Australia,1.14,20
+2013,South Australia,0.95,14
+2014,South Australia,1.0,17
+2015,South Australia,1.05,18
+2016,South Australia,1.16,20
+2017,South Australia,0.8,14
+2018,South Australia,0.97,17
+2019,South Australia,0.79,14
+2020,South Australia,0.61,11
+2021,South Australia,0.49,9
+2022,South Australia,0.65,12
+1990,Tasmania,1.07,5
+1991,Tasmania,1.91,9
+1992,Tasmania,1.27,6
+1993,Tasmania,1.06,5
+1994,Tasmania,1.05,5
+1995,Tasmania,1.26,6
+1996,Tasmania,0.63,3
+1997,Tasmania,0.84,4
+1998,Tasmania,1.48,7
+1999,Tasmania,1.9,9
+2000,Tasmania,1.69,8
+2001,Tasmania,1.9,9
+2002,Tasmania,1.25,6
+2003,Tasmania,0.62,3
+2004,Tasmania,2.06,10
+2005,Tasmania,0.61,3
+2006,Tasmania,1.62,8
+2007,Tasmania,1.0,5
+2008,Tasmania,1.59,8
+2009,Tasmania,1.18,6
+2010,Tasmania,0.78,4
+2011,Tasmania,0.98,5
+2012,Tasmania,1.37,7
+2013,Tasmania,1.56,8
+2014,Tasmania,1.16,6
+2015,Tasmania,1.16,6
+2016,Tasmania,2.3,12
+2017,Tasmania,0.38,2
+2018,Tasmania,0.75,4
+2019,Tasmania,0.93,5
+2020,Tasmania,1.06,6
+2021,Tasmania,1.4,8
+2022,Tasmania,0.87,5
+1990,Australian Capital Territory,0.0,0
+1991,Australian Capital Territory,0.68,2
+1992,Australian Capital Territory,0.33,1
+1993,Australian Capital Territory,0.66,2
+1994,Australian Capital Territory,1.31,4
+1995,Australian Capital Territory,0.32,1
+1996,Australian Capital Territory,0.64,2
+1997,Australian Capital Territory,0.32,1
+1998,Australian Capital Territory,0.64,2
+1999,Australian Capital Territory,0.95,3
+2000,Australian Capital Territory,0.0,0
+2001,Australian Capital Territory,0.92,3
+2002,Australian Capital Territory,0.92,3
+2003,Australian Capital Territory,0.91,3
+2004,Australian Capital Territory,0.91,3
+2005,Australian Capital Territory,1.49,5
+2006,Australian Capital Territory,1.17,4
+2007,Australian Capital Territory,0.86,3
+2008,Australian Capital Territory,1.13,4
+2009,Australian Capital Territory,0.83,3
+2010,Australian Capital Territory,0.0,0
+2011,Australian Capital Territory,1.06,4
+2012,Australian Capital Territory,0.52,2
+2013,Australian Capital Territory,0.26,1
+2014,Australian Capital Territory,2.78,5
+2015,Australian Capital Territory,0.74,3
+2016,Australian Capital Territory,0.24,1
+2017,Australian Capital Territory,0.24,1
+2018,Australian Capital Territory,0.46,2
+2019,Australian Capital Territory,0.46,2
+2020,Australian Capital Territory,1.32,6
+2021,Australian Capital Territory,1.53,7
+2022,Australian Capital Territory,0.64,3
+1990,Northern Territory,16.92,28
+1991,Northern Territory,10.68,18
+1992,Northern Territory,9.9,17
+1993,Northern Territory,13.15,23
+1994,Northern Territory,11.14,19
+1995,Northern Territory,11.92,21
+1996,Northern Territory,9.49,18
+1997,Northern Territory,5.7,11
+1998,Northern Territory,9.18,18
+1999,Northern Territory,3.51,7
+2000,Northern Territory,8.43,17
+2001,Northern Territory,11.87,24
+2002,Northern Territory,8.43,17
+2003,Northern Territory,5.43,11
+2004,Northern Territory,5.83,12
+2005,Northern Territory,7.65,16
+2006,Northern Territory,8.42,18
+2007,Northern Territory,8.19,18
+2008,Northern Territory,4.87,11
+2009,Northern Territory,5.66,13
+2010,Northern Territory,4.76,11
+2011,Northern Territory,5.51,13
+2012,Northern Territory,7.03,17
+2013,Northern Territory,6.59,16
+2014,Northern Territory,2.04,10
+2015,Northern Territory,2.44,6
+2016,Northern Territory,2.83,7
+2017,Northern Territory,2.44,6
+2018,Northern Territory,2.03,5
+2019,Northern Territory,3.25,8
+2020,Northern Territory,2.81,7
+2021,Northern Territory,2.8,7
+2022,Northern Territory,4.36,11
