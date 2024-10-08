@@ -1,0 +1,84 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {
+      "text": "Relationship Between GSP per Capita, Homicide Rate, and Homicide Count by State",
+      "fontSize": 18,
+      "offset": 10
+    },
+    "width": 800,
+    "height": 500,
+    "data": {
+      "url": "https://raw.githubusercontent.com/ianllow/A2/main/aushomicidedata.csv"
+    },
+    "mark": {
+      "type": "circle",
+      "clip": true,
+      "opacity": 0.8
+    },
+    "params": [
+      {
+        "name": "state_selection",
+        "value": "All",
+        "bind": {
+          "input": "select",
+          "options": ["All", "Australian Capital Territory", "New South Wales", "Northern Territory", "Queensland", "South Australia", "Tasmania", "Victoria", "Western Australia"],
+          "name": "Select State: "
+        }
+      }
+    ],
+    "transform": [
+      {
+        "filter": "state_selection == 'All' || datum.State == state_selection"
+      }
+    ],
+    "encoding": {
+      "x": {
+        "field": "Homicide_Rate",
+        "type": "quantitative",
+        "title": "Homicide Rate (per 100,000 people)",
+        "scale": {
+          "domain": [0, 11]
+        },
+        "axis": {"grid": true, "gridOpacity": 0.3}
+      },
+      "y": {
+        "field": "GSP_per_Capita",
+        "type": "quantitative",
+        "title": "GSP per Capita",
+        "scale": {
+          "domain": [0, 160000]
+        },
+        "axis": {"grid": true, "gridOpacity": 0.3}
+      },
+      "size": {
+        "field": "Homicide_Count",
+        "type": "quantitative",
+        "title": "Homicide Count",
+        "scale": {"range": [50, 300]},
+        "legend": {"title": "Homicide Count"}
+      },
+      "color": {
+        "field": "State",
+        "type": "nominal",
+        "title": "State",
+        "scale": {
+          "scheme": "set3",
+          "domain": ["Australian Capital Territory", "New South Wales", "Northern Territory", "Queensland", "South Australia", "Tasmania", "Victoria", "Western Australia"]
+        }
+      },
+      "tooltip": [
+        {"field": "Year", "type": "ordinal", "title": "Year"},
+        {"field": "State", "type": "nominal", "title": "State"},
+        {"field": "GSP_per_Capita", "type": "quantitative", "title": "GSP per Capita"},
+        {"field": "Homicide_Rate", "type": "quantitative", "title": "Homicide Rate"},
+        {"field": "Homicide_Count", "type": "quantitative", "title": "Homicide Count"}
+      ]
+    },
+    "config": {
+      "axis": {
+        "labelFontSize": 12,
+        "titleFontSize": 14,
+        "domainWidth": 2
+      }
+    }
+  }
