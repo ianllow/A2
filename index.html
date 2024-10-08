@@ -2,23 +2,123 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
-
+    <title>Exploring Homicide Trends in Australia</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
     <script src="vegalitevis.js"></script>
-
-    <title>Choropleth Map of Intentional Homicide Rates </title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom right,  #696969, #2f4f4f);
+        }
+        .chart-container {
+            margin: 40px 0;
+            padding: 40px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        #choropleth_map {
+            width: 100%;
+            height: 500px;
+        }
+        .linechart-title::before {
+            content: '';
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+            background-image: url('https://img.icons8.com/ios-filled/50/000000/line-chart.png');
+            background-size: contain;
+        }
+        #linechart {
+            width: 100%;
+            height: 500px;
+            margin-top: 20px;
+        }
+        #bubbleplot {
+            width: 100%;
+            height: 600px;
+            padding-top: 20px;
+        }
+        h2 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        h2::before {
+            content: '';
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+            background-size: contain;
+        }
+        .choropleth-title::before {
+            background-image: url('https://img.icons8.com/ios-filled/50/000000/world-map.png');
+        }
+        .bubbleplot-title::before {
+            background-image: url('https://img.icons8.com/ios-filled/50/000000/scatter-plot.png');
+        }
+        .narrative-title::before {
+            background-image: url('https://img.icons8.com/ios-filled/50/000000/light-bulb.png');
+        }
+        .conclusion-title::before {
+            background-image: url('https://img.icons8.com/ios-filled/50/000000/checklist.png');
+        }
+    </style>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Choropleth Map of Intentional Homicide Rates</h1>
-    <div id="linechart">
+    <div class="container" style="max-width: 1400px;">
+        <!-- Header Section -->
+        <header class="text-center mt-4 mb-4">
+            <h1 style="font-family: 'Crimson Text', serif; color: #800000;">Exploring Homicide Trends and Economic Indicators in Australia</h1>
+            <p>An interactive dashboard exploring homicide rates and economic indicators across Australian states from 1990 to 2022.</p>
+        </header>
+
+        <!-- Section 1: Choropleth Map and Line Chart -->
+        <div class="chart-container">
+            <h2 class="choropleth-title" style="font-family: 'Crimson Text', serif; color: #800000;">Homicide Rates Across Australian States and Trends Over Time</h2>
+            <div id="choropleth_map"></div>
+            <h3 class="linechart-title" style="font-family: 'Crimson Text', serif; color: #800000;">National Homicide Trends Over Time</h3>
+            <div id="linechart"></div>
+        </div>
+
+        <!-- Section 2: Bubble Plot -->
+        <div class="chart-container">
+            <h2 class="bubbleplot-title" style="font-family: 'Crimson Text', serif; color: #800000;">State-Level Economic Correlations</h2>
+            <div id="bubbleplot"></div>
+        </div>
+
+        <!-- Section 3: Narrative and Observations -->
+        <div class="chart-container">
+            <h2 class="narrative-title" style="font-family: 'Crimson Text', serif; color: #800000;">Narrative and Key Observations</h2>
+            <p>
+                <strong>The visualizations above provide insights into the distribution of homicide rates across different states in Australia.</strong> The choropleth map shows a spatial overview, while the line chart illustrates the change in homicide rates over time for each state. The bubble plot explores the correlation between economic prosperity, represented by GSP per capita, and homicide rates, providing a deeper understanding of socio-economic factors influencing crime.
+            </p>
+            <p>
+                For example, states with higher GSP per capita may tend to have lower homicide rates, suggesting a possible link between economic well-being and lower crime levels. However, some states might deviate from this trend, prompting further investigation.
+            </p>
+        </div>
+
+        <!-- Section 4: Conclusion and Insights -->
+        <div class="chart-container">
+            <h2 class="conclusion-title" style="font-family: 'Crimson Text', serif; color: #800000;">Conclusion and Further Exploration</h2>
+            <p>
+                Overall, the dashboard reveals varying trends in homicide rates and their possible association with economic indicators. The visual exploration helps us understand how crime levels differ geographically and over time, influenced by the wealth of each state.
+                <br>
+                Further research could involve understanding the socio-political factors that contribute to the observed differences, and how effective different crime prevention strategies have been in specific regions.
+            </p>
+        </div>
     </div>
-    <h1>Bar Chart of Intentional Homicide Rate</h1>
-    <div id="choropleth_map">
-    </div>
+
 </body>
 </html>
