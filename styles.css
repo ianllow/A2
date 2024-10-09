@@ -1,72 +1,54 @@
 body {
-    font-family: Arial, sans-serif;
-    background: black;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color: #f4f4f4;
 }
-.chart-container {
-    margin: 20px 0;
-    padding: 30px;
-    background-color: #d3d3d3;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border: 4px solid black;
+
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
 }
-#choropleth_map,
-#linechart,
-#bubbleplot,
-#heatmap {
-    width: 100%;
-    height: 500px;
-    margin-top: 20px;
+
+main {
+    width: 80%;
+    margin: 2rem auto;
 }
-.linechart-title::before {
-    content: '';
-    display: inline-block;
-    width: 24px;
-    height: 24px;
-    margin-right: 10px;
-    background-image: url('https://img.icons8.com/ios-filled/50/000000/line-chart.png');
-    background-size: contain;
-}
-h2 {
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
-    border-bottom: 2px solid #e9ecef;
-    padding-bottom: 10px;
+
+section {
+    margin-bottom: 2rem;
+    background-color: #fff;
+    padding: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
-    font-family: 'Roboto', sans-serif;
 }
-h2::before {
-    content: '';
-    display: inline-block;
-    width: 24px;
-    height: 24px;
-    margin-right: 10px;
-    background-size: contain;
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
 }
+
 .choropleth-title::before {
     background-image: url('https://img.icons8.com/ios-filled/50/000000/world-map.png');
 }
+
 .bubbleplot-title::before {
     background-image: url('https://img.icons8.com/ios-filled/50/000000/scatter-plot.png');
 }
+
 .narrative-title::before {
     background-image: url('https://img.icons8.com/ios-filled/50/000000/light-bulb.png');
 }
+
 .conclusion-title::before {
     background-image: url('https://img.icons8.com/ios-filled/50/000000/checklist.png');
-}
-header {
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-header h1 {
-    font-family: 'Roboto', sans-serif;
-    color: #800000;
 }
