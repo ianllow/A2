@@ -1,0 +1,58 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {
+      "text": "Homicide Rates Across Australian States Over Time",
+      "fontSize": 20,
+      "offset": 20
+    },
+    "width": 800,
+    "height": 400,
+    "data": {
+      "url": "https://raw.githubusercontent.com/ianllow/A2/main/aushomicidedata.csv"
+    },
+    "mark": "rect",
+    "encoding": {
+      "x": {
+        "field": "Year",
+        "type": "ordinal",
+        "title": "Year",
+        "axis": {
+          "labelAngle": -45,
+          "labelFontSize": 12,
+          "titleFontSize": 14
+        }
+      },
+      "y": {
+        "field": "State",
+        "type": "nominal",
+        "title": "State",
+        "axis": {
+          "labelFontSize": 12,
+          "titleFontSize": 14,
+          "grid": true,
+          "gridColor": "#e0e0e0",
+          "gridWidth": 0.8
+        }
+      },
+      "color": {
+        "field": "Homicide_Rate",
+        "type": "quantitative",
+        "title": "Homicide Rate (per 100,000 people)",
+        "scale": {
+          "scheme": "viridis"
+        }
+      },
+      "tooltip": [
+        {"field": "State", "type": "nominal", "title": "State"},
+        {"field": "Year", "type": "ordinal", "title": "Year"},
+        {"field": "Homicide_Rate", "type": "quantitative", "title": "Homicide Rate"}
+      ]
+    },
+    "config": {
+      "axis": {
+        "labelFontSize": 12,
+        "titleFontSize": 14,
+        "domainWidth": 2
+      }
+    }
+  }
