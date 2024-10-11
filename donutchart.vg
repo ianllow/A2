@@ -1,0 +1,31 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Doughnut chart showing homicide distribution with data labels.",
+  "data": {
+    "url": "https://raw.githubusercontent.com/ianllow/A2/main/aushomicideclassificationrate.csv",
+    "format": {"type": "csv"}
+  },
+  "transform": [
+    {
+      "aggregate": [
+        {"op": "sum", "field": "Homicide_Rate", "as": "TotalRate"}
+      ],
+      "groupby": ["Type"]
+    }
+  ],
+  "mark": {
+    "type": "arc",
+    "innerRadius": 50,
+    "stroke": "black", 
+    "strokeWidth": 2 
+  },
+  "encoding": {
+    "theta": {"field": "TotalRate", "type": "quantitative"},
+    "color": {"field": "Type", "type": "nominal"},
+    "tooltip": [
+      {"field": "Type", "type": "nominal", "title": "Homicide Type"},
+      {"field": "TotalRate", "type": "quantitative", "title": "Total Rate"}
+    ]
+  },
+  "title": "Distribution of Homicide Classifications"
+}
