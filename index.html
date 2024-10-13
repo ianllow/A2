@@ -1,124 +1,336 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exploring Homicide Trends in Australia</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <title>Homicide Analysis Dashboard</title>
+    <!-- Vega-Lite and Vega-Embed Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
     <script src="vegalitevis.js"></script>
+    <!-- Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Raleway -->
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Pure.css -->
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css" integrity="sha384-oXXDs4lJWgq8NtO1EO6p/PT7Kg9DOaFfKVU8BgHMGCN4C2kY9KgAg1tF2J+06F5R" crossorigin="anonymous">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Custom CSS -->
     <style>
+        .pure-g-custom {
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: stretch; 
+            justify-content: stretch;
+        }
+
         body {
             font-family: Arial, sans-serif;
-            background: linear-gradient(to bottom right,  #696969, #2f4f4f);
+            margin: 0;
+            padding: 0;
         }
-        .chart-container {
-            margin: 40px 0;
-            padding: 40px;
+
+        header {
+            background-color: #ff7d7d;
+            color: #000000;
+            text-align: center;
+            padding: 1.5rem 0;
+            width: 100%;
+            border: 4px solid black;
+        }
+
+        main {
+            width: 100%;
+            background-color: #ff7d7d;
+        }
+
+        section {
             background-color: #ffffff;
+            padding: 2rem;
+            margin-bottom: 2rem;
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: auto; 
+            border: 4px solid black;
         }
-        #choropleth_map {
+
+        .map-container {
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            border: 4px solid black;   
+            padding: 1rem;
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSplh7pVNdO_lLuMFQbmLe1uX7PrZLkE6Ofvw&s'); 
+            background-size: cover; 
+            background-repeat: no-repeat; 
+            background-attachment: fixed; 
+            background-position: fill;    
+            margin: 0;
+        }
+
+        .line-container{
+            flex: 1;
+            background-color: #b92c33;
+            display: inline-flex;
+            justify-content: stretch; 
+            align-items: stretch; 
+            border: 4px solid black; 
+            width: fit-content;        
+            margin-top: 1rem;  
+            padding: 1rem;
+        }
+
+        .donut-container{
+            background-color: #b92c33;
+            display: inline-flex; 
+            justify-content: stretch; 
+            align-items: stretch; 
+            border: 4px solid black; 
+            width: fit-content;        
+            margin-top: 1rem;  
+            padding: 1rem;
+        }
+
+        .bubble-container{
+            background-color: #b92c33;
+            display: inline-flex; 
+            justify-content: stretch; 
+            align-items: stretch; 
+            border: 4px solid black; 
+            width: fit-content;        
+            margin-top: 1rem;  
+            padding: 1rem;
+        }
+
+        .text-container {
+            flex: 1;
+            flex-direction: column;
+            display: inline-flex;
+            background-color: #ffffff; 
+            color: #000000; 
+            border: 4px solid black;
+            padding: 1.5rem;
+            border-radius: 5px;
+            margin-left: 1rem;
+            margin-top: 1rem;
+            height: 200%;
             width: 100%;
-            height: 500px;
-        }
-        .linechart-title::before {
-            content: '';
-            display: inline-block;
-            width: 24px;
-            height: 24px;
-            margin-right: 10px;
-            background-image: url('https://img.icons8.com/ios-filled/50/000000/line-chart.png');
-            background-size: contain;
-        }
-        #linechart {
-            width: 100%;
-            height: 500px;
-            margin-top: 20px;
-        }
-        #bubbleplot {
-            width: 100%;
-            height: 600px;
-            padding-top: 20px;
-        }
-        h2 {
-            font-size: 24px;
-            font-weight: bold;
-            color: #333;
-            border-bottom: 2px solid #e9ecef;
-            padding-bottom: 10px;
-            display: flex;
             align-items: center;
+            justify-content: center;
         }
-        h2::before {
-            content: '';
-            display: inline-block;
-            width: 24px;
-            height: 24px;
-            margin-right: 10px;
-            background-size: contain;
+
+        .text-container h3 {
+            font-size: 40pt;
+            font-weight: bold;
+            margin: 0 0 0.5rem 0;
+            font-family: 'Montserrat';
+            
         }
-        .choropleth-title::before {
-            background-image: url('https://img.icons8.com/ios-filled/50/000000/world-map.png');
+
+        .text-container p {
+            margin: 0;
+            font-size: 18pt;
+            font-family: 'Raleway';
         }
-        .bubbleplot-title::before {
-            background-image: url('https://img.icons8.com/ios-filled/50/000000/scatter-plot.png');
+
+        .sec2-text-container {
+            flex: 1;
+            flex-direction: column;
+            display: inline-flex;
+            background-color: #ffffff; 
+            color: #000000; 
+            border: 4px solid black;
+            padding: 1.5rem;
+            border-radius: 5px;
+            margin-left: 1rem;
+            margin-top: 1rem;
+            height: 200%;
+            width: 100%;
         }
-        .narrative-title::before {
-            background-image: url('https://img.icons8.com/ios-filled/50/000000/light-bulb.png');
+
+        .sec2-text-container h3 {
+            font-size: 40pt;
+            font-weight: bold;
+            margin: 0 0 0.5rem 0;
+            text-align: center;
+            
         }
-        .conclusion-title::before {
-            background-image: url('https://img.icons8.com/ios-filled/50/000000/checklist.png');
+
+        .sec2-text-container p {
+            margin: 0;
+            font-size: 18pt;
         }
+
+        .chart-title {
+            text-align: center;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        footer {
+            background-color: #000000;
+            color: #fff;
+            text-align: center;
+            padding: 1.5rem 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .classification-list {
+            display: flex; 
+            justify-content: space-around; 
+            align-items: center; 
+            text-align: center; 
+            font-size: 1.2rem; 
+            font-family: 'Raleway';
+        }
+
+        .classification-item {
+            flex: 1; 
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-around; 
+            flex: 1;
+            padding: 20px;
+            background-color: #ff7d7d;
+        }
+
+        .nav-container a {
+            text-decoration: none;
+            color: rgb(0, 0, 0);
+            font-weight: bold;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 16pt;
+            font-family: 'Raleway';
+        }
+
+        .nav-container a:hover {
+            background-color: #ff4c4c;
+        }
+        
     </style>
-<link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@700&display=swap" rel="stylesheet">
-</head>
+
 <body>
-    <div class="container" style="max-width: 1400px;">
-        <!-- Header Section -->
-        <header class="text-center mt-4 mb-4">
-            <h1 style="font-family: 'Crimson Text', serif; color: #800000;">Exploring Homicide Trends and Economic Indicators in Australia</h1>
-            <p>An interactive dashboard exploring homicide rates and economic indicators across Australian states from 1990 to 2022.</p>
-        </header>
+    <!-- Header Section -->
+    <header>
+        <h1 style="font-family: 'Montserrat';">Analyzing Intentional Homicide Rates in Australia</h1>
+        <nav class="nav-container">
+            <a href="#section1">1.National Homicide Analysis</a>
+            <a href="#section2">2.Homicide Relationships</a>
+            <a href="#section3">3.Economic Correlations</a>
+        </nav>
+    </header>
 
-        <!-- Section 1: Choropleth Map and Line Chart -->
-        <div class="chart-container">
-            <h2 class="choropleth-title" style="font-family: 'Crimson Text', serif; color: #800000;">Homicide Rates Across Australian States and Trends Over Time</h2>
-            <div id="choropleth_map"></div>
-            <h3 class="linechart-title" style="font-family: 'Crimson Text', serif; color: #800000;">National Homicide Trends Over Time</h3>
-            <div id="linechart"></div>
-        </div>
+    <!-- Main Content -->
+    <main>
+        <!-- Section 1: Choropleth Map -->
+        <section id="section1">
+            <h2 style="text-align: center; margin-bottom: 1rem; font-size: 30pt; font-family: 'Montserrat';">National Homicide Analysis</h2>
+            <div class="pure-g">
+                <div class="pure-u-1 map-container ">
+                    <div id="choropleth_map" style="background-color: rgb(255, 255, 255); border: 4px solid black;"></div>
+                </div>
+            </div>
+                <div class="pure-g pure-g-custom">
+                    <div class="pure-u-1-2 line-container" style="display: flex; flex-direction: column;">
+                        <div id="linechart"></div>
+                        <div class="classification-list" style="background-color: #ffffff; margin-top: 1rem; border: 4px solid black;">
+                            <p style="font-family: 'Raleway'; font-weight: bold; font-size: 26pt;">Homicide Rates:</p>
+                            <span class="year-with-icon" style="font-size: 40pt; font-family: 'Raleway';">1990s <span style="color: red;"><i class="fas fa-arrow-up" style="margin-left: 5px;"></i></span></span>
+                            <span class="year-with-icon" style="font-size: 40pt; font-family: 'Raleway';">2000s <span style="color: greenyellow;"><i class="fas fa-arrow-down" style="margin-left: 5px;"></i></span></span>
+                          </div>
+                    </div>
+                    <div class="pure-u-1-2 text-container">
+                        <h3>Point To Note</h3>
+                        <p style="line-height: 2; text-align: center;">
+                            <span style="font-weight: bold;"> As of <span style="font-size: 26pt;">2022</span></span>, <br>
+                            <span style="font-size: 50pt; color: #ff7d7d;">Northern Territory</span><br>
+                            Despite having a homicide count of <br>
+                            <span style="font-size: 32pt;color: #ff7d7d;">11</span><br>
+                            Has the highest homicide rate of <br>
+                            <span style="font-size: 32pt;color: #ff7d7d;">4.36</span>
+                                          
+                        </p>                      
+                    </div>
+                </div>
+            </section>
 
-        <!-- Section 2: Bubble Plot -->
-        <div class="chart-container">
-            <h2 class="bubbleplot-title" style="font-family: 'Crimson Text', serif; color: #800000;">State-Level Economic Correlations</h2>
-            <div id="bubbleplot"></div>
-        </div>
+        <!-- Section 2: Donut Chart -->
+        <section id="section2">
+            <h3 style="font-family: 'Montserrat'; text-align: center; font-size: 30pt;">Homicide Relationships</h3>
+            <div class="pure-g pure-g-custom">
+                <div class="pure-u-1-2 sec2-text-container" style="margin-right: 1rem;">
+                    <div class="classification-list">
+                        <div class="classification-item">
+                            <p style="font-size: 50pt; line-height: 1; color: #4875ad;">41%</p>
+                            <p style="font-size: 30pt;">=</p>
+                            <p style="font-size: 32pt; color: #4875ad;"><span style="font-size: 50pt;"><i class="fas fa-home"></i></span> Domestic</p>
+                        </div>
+                        <div class="classification-item">
+                            <p style="font-size: 50pt; line-height: 1; color: #F79646;">40%</p>
+                            <p style="font-size: 30pt;">=</p>
+                            <p style="font-size: 32pt; color: #F79646;"><span style="font-size: 50pt;"><i class="fas fa-handshake"></i></span> Acquaintance</p>
+                        </div>
+                        <div class="classification-item">
+                            <p style="font-size: 50pt; line-height: 1; color: #C0504D;">14%</p>
+                            <p style="font-size: 30pt;">=</p>
+                            <p style="font-size: 32pt; color: #C0504D;"><span style="font-size: 50pt;"><i class="fas fa-walking"></i></span> Stranger</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="pure-u-1-2 donut-container">
+                    <div id="donutchart"></div>
+                </div>
+            </div>
+        </section>
 
-        <!-- Section 3: Narrative and Observations -->
-        <div class="chart-container">
-            <h2 class="narrative-title" style="font-family: 'Crimson Text', serif; color: #800000;">Narrative and Key Observations</h2>
-            <p>
-                <strong>The visualizations above provide insights into the distribution of homicide rates across different states in Australia.</strong> The choropleth map shows a spatial overview, while the line chart illustrates the change in homicide rates over time for each state. The bubble plot explores the correlation between economic prosperity, represented by GSP per capita, and homicide rates, providing a deeper understanding of socio-economic factors influencing crime.
-            </p>
-            <p>
-                For example, states with higher GSP per capita may tend to have lower homicide rates, suggesting a possible link between economic well-being and lower crime levels. However, some states might deviate from this trend, prompting further investigation.
-            </p>
-        </div>
+        <!-- Section 3: Bubble Plot -->
+        <section id="section3" style="margin-bottom: 0;">
+            <h1 style="font-family: 'Montserrat'; text-align: center; font-size: 30pt;">Economic Correlations</h1>
+            <div class="pure-g pure-g-custom" style="display: flex; justify-content: space-between; align-items: flex-start;">
+                <div class="pure-u-1-2 line-container">
+                    <div id="bubbleplot"></div>
+                </div>
+                <div class="pure-u-1-2 text-container" style="display: flex; flex-direction: column; align-items: center; justify-content: space-between; flex: 1;">
+                    <div style="flex: 1;">
+                        <h3 style="text-align: center; font-family: 'Montserrat';">Point To Note</h3>
+                        <p style="background-color: #ff7d7d; color: #000000; text-align: center; font-weight: bold; margin-top: 1rem; padding: 10px; font-family: 'Raleway';">
+                            Economic Prosperity Doesn’t Necessarily Lower Homicide Rates<span style="font-size: 30pt;">!</span>  
+                        </p>
+                        <p style="background-color: #ff7d7d; color: #000000; text-align: center; font-weight: bold; margin-top: 1rem; padding: 10px; font-family: 'Raleway';">
+                            High Variability Across States
+                        </p>
+                        <div class="question-container" style="margin-top: 20px; padding: 10px; background-color: #ffcccb; border-radius: 8px;">
+                            <h3 style="font-size: 26pt; font-weight: bold; color: #333; font-family: 'Montserrat';">Questions Posed:</h3>
+                            <ul style="list-style-type: disc; padding-left: 20px; font-size: 1rem; color: #555; font-family: 'Raleway';">
+                                <li style="font-size: 15pt;">What other socio-economic factors might be influencing homicide rates across states?</li>
+                                <li style="font-size: 15pt;">Could policy differences explain the variations observed across states with similar economic conditions?</li>
+                            </ul>
+                        </div>                     
+                    </div>
+                    <div class="image-container" style="text-align: center; margin-top: 20px;">
+                        <img src="https://raw.githubusercontent.com/ianllow/A2/main/deadman.png" 
+                             alt="Crime Scene Outline" 
+                             style="width: 500px; height: auto;margin-top: 20px;">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
-        <!-- Section 4: Conclusion and Insights -->
-        <div class="chart-container">
-            <h2 class="conclusion-title" style="font-family: 'Crimson Text', serif; color: #800000;">Conclusion and Further Exploration</h2>
-            <p>
-                Overall, the dashboard reveals varying trends in homicide rates and their possible association with economic indicators. The visual exploration helps us understand how crime levels differ geographically and over time, influenced by the wealth of each state.
-                <br>
-                Further research could involve understanding the socio-political factors that contribute to the observed differences, and how effective different crime prevention strategies have been in specific regions.
-            </p>
-        </div>
-    </div>
-
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Homicide Analysis Dashboard. All Rights Reserved.</p>
+    </footer>
 </body>
+
 </html>
